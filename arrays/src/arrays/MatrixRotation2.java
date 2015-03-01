@@ -2,7 +2,7 @@ package arrays;
 
 public class MatrixRotation2 {
 	public static void main(String[] args) {
-		int[][] image = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+		int[][] image = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
 		System.out.println("Rotated image using additional data structure: ");
 		rotateImage(image);
 		System.out.println("Rotated image using in-place algorithm: ");
@@ -26,7 +26,10 @@ public class MatrixRotation2 {
 		int n  = image.length;
 		for(int i = 0; i < n; i++) {
 			for(int j = 0; j < n; j++) {
-				System.out.print(image[i][j] + " ");
+				Object[] obj = new Object[1];
+				obj[0] = new Integer(image[i][j]);
+				System.out.printf("%-6d", obj);
+				obj = null;
 			}
 			System.out.println("");
 		}
@@ -34,8 +37,9 @@ public class MatrixRotation2 {
 	// formula: row = j, column = n-1-i
 	public static void rotateImageInPlace(int[][] image) {
 		int n = image.length;
+		int l = n-1;
 		for(int i = 0; i < n/2; i++) {
-			for(int j = i; j < n-1; j++) {
+			for(int j = i; j < l; j++) {
 
 				// save top right
 				int temp = image[j][n-1-i];
@@ -58,6 +62,7 @@ public class MatrixRotation2 {
 				// top left = bottom left
 				image[i][j] = temp;
 			}
+			l--;
 		}
 		printImage(image);
 	}

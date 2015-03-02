@@ -3,7 +3,7 @@ package arrays;
 public class DifferentElements {
 	public static void main(String[] args) {
 		int[] arr1 = {2, 5, 9, 10, 15, 18};
-		int[] arr2 = {2, 5, 9, 10, 11, 15, 18, 19};
+		int[] arr2 = {2, 5, 7, 9, 10, 15, 18, 19};
 		printDifferentElements(arr1, arr2);
 	}
 	public static void printDifferentElements(int[] arr1, int[] arr2) {
@@ -24,12 +24,12 @@ public class DifferentElements {
 		int i = 0;
 		int j = 0;
 		while(i < n) {
-			if(arr1[i] == arr2[j]) {
+			if(smallerArray[i] == biggerArray[j]) {
 				i++;
 				j++;
 			}
 			else {
-				System.out.print(arr2[j] + " ");
+				System.out.print(biggerArray[j] + " ");
 				count++;
 				j++;
 			}
